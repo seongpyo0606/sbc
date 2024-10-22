@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -69,6 +70,8 @@ public class CamperController {
      */
     @PostMapping("/")
     public Map<String, Long> register(CamperBoardDTO camperBoardDTO) {
+        log.info("컨트롤러 오니?");
+        log.info("가ㅏ:", camperBoardDTO);
         MultipartFile file = camperBoardDTO.getFile();
         String uploadFileName = fileUtil.saveFile(file);
         camperBoardDTO.setCBoardAttachment(uploadFileName);
@@ -153,12 +156,13 @@ public class CamperController {
      *
      * @param
      */
-    @DeleteMapping("/comments/{commentId}")
+    @DeleteMapping("/{cBoardId}/comment/{cCommentId}")
+    @Transactional
     public Map<String, String> removeComment(
-            @PathVariable("commentId") Long commentId
-    ) {
-        camperService.removeComment(commentId);
+            @PathVariable("cCommentId") Long cCommentId,
+            @PathVariable("cBoardId") Long cBoardId) {
+        camperService.removeComment(cCommentId, cBoardId);
         return Map.of("RESULT", "SUCCESS");
-    }
 
+    }
 }

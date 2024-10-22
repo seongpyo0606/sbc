@@ -9,12 +9,11 @@ const AddComponent = () => {
     // 초기 상태 설정
     const initState = {
         member: {
-            memberId: loginState.member.memberId,
+            memberId: loginState.member.memberId
         },
         cBoardCategory: '',
         cBoardTitle: '',
         cBoardContent: '',
-        cBoardDate: new Date().toISOString().split('T')[0],
         file: null
     }
 
@@ -50,13 +49,14 @@ const AddComponent = () => {
         formData.append("cBoardTitle", cboard.cBoardTitle);
         formData.append("cBoardCategory", cboard.cBoardCategory);
         formData.append("cBoardContent", cboard.cBoardContent);
-        formData.append("cBoardDate", cboard.cBoardDate);
-        formData.append("member", cboard.member.memberId);
+        formData.append("member", cboard.member.memberId); // 객체로 변환해서 전송
         if(cboard.file != null){
-            formData.append("file", cboard.file)
+            formData.append("file", cboard.file);
         }
-        console.log('보내기 전 데이터 : ', formData)
-        await postAdd(formData) // 첨부파일을 추가
+
+        console.log('보내기 전 데이터 : ', formData);
+
+        await postAdd(formData)
             .then(result => {
                 console.log("등록 서버 응답:", result);
                 moveToList(); // 등록 완료 후 campers/list 페이지로 이동

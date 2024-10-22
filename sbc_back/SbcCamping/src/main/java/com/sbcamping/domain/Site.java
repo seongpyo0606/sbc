@@ -34,7 +34,7 @@ public class Site {
 
     @Column(name = "Site_Weekend_Pay", nullable = false, columnDefinition = "NUMBER(10,0)") // 주말가격
     @Builder.Default    //값이 정해져 있기 떄문에 사용
-    private Long WeekendPay = 80000L;
+    private Long weekendPay = 80000L;
 
     @Column(name = "Site_Weekday_Pay", nullable = false, columnDefinition = "NUMBER(10,0)") // 평일가격
     @Builder.Default
@@ -62,7 +62,7 @@ public class Site {
     }
 
     public void changeWeekendPay(Long WeekendPay) {
-        this.WeekendPay = WeekendPay;
+        this.weekendPay = WeekendPay;
     }
 
     public void changeWeekdayPay(Long WeekdayPay) {

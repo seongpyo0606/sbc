@@ -6,6 +6,7 @@ import com.sbcamping.user.camper.dto.*;
 
 import java.util.List;
 
+
 public interface CamperService {
 
     Long register(CamperBoardDTO camperBoardDTO);
@@ -15,6 +16,7 @@ public interface CamperService {
     void modify(CamperBoardDTO camperBoardDTO);
 
     void remove(Long cBoardId);
+
 
     PageResponseDTO<CamperBoardDTO> list(PageRequestDTO pageRequestDTO);
 
@@ -28,5 +30,5 @@ public interface CamperService {
 
     void modifyComment(CamperBoardCommentDTO dto);
 
-    void removeComment(Long commentId);
+    void removeComment(Long cCommentId, Long cBoardId);
 }

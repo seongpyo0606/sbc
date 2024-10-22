@@ -20,7 +20,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -37,7 +37,6 @@ public class CamperServiceImpl implements CamperService {
     private final CamperCommentRepository commentRepository;
     private final MemberRepository memberRepository;
 
-    private final String ROLE_ADMIN = "ROLE_ADMIN";
     private final String TITLE = "title";
     private final String CONTENT = "content";
 
@@ -165,7 +164,7 @@ public class CamperServiceImpl implements CamperService {
                 .collect(Collectors.toList());
         return result;
     }
-
+    //댓글 등록
     @Override
     public Long registerComment(
             String auth,
@@ -185,7 +184,7 @@ public class CamperServiceImpl implements CamperService {
                             .member(member)
                             .cBoard(camperBoard)
                             .cCommentContent(dto.getCCommentContent())
-                            .cCommentDate(LocalDate.now())
+                            .cCommentDate(new Date())
                             .build()
             ).getCCommentID();
         } else {
@@ -195,21 +194,24 @@ public class CamperServiceImpl implements CamperService {
 
     @Override
     public void modifyComment(CamperBoardCommentDTO dto) {
+        //read
         Optional<CamperBoardComment> result = commentRepository.findById(dto.getCommentId());
         CamperBoardComment camperBoardComment = result.orElseThrow();
-
+        log.info(camperBoardComment.getCCommentContent());
+        //change:content
         String updatedContent = dto.getCCommentContent();
-        if (StringUtils.hasText(updatedContent)) {
-            camperBoardComment.setCCommentContent(updatedContent);
+        if (updatedContent != null) {
+            camperBoardComment.changeContent(updatedContent);
         }
+        //update modified date
+        camperBoardComment.changeDate(new Date());
 
-        camperBoardComment.setCCommentDate(LocalDate.now());
 
         commentRepository.save(camperBoardComment);
     }
 
     @Override
-    public void removeComment(Long commentId) {
+    public void removeComment(Long commentId, Long cBoardId) {
         commentRepository.deleteById(commentId);
     }
 

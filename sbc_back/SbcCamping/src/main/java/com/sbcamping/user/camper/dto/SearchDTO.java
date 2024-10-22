@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SearchDTO {
-    private String keyword;
-    private String type;
-    private int page;
-    private int size;
+    private String keyword; // 검색할 키워드
+    private int page; // 페이지 번호
+    private int size; // 페이지 크기
 }

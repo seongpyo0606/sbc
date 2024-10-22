@@ -32,9 +32,11 @@ export const getSearchList = async (searchParam) => {
 //추가
 export const postAdd = async (formData) => {
   const header = {
-    header: { "Content-Type": "multipart/form-data" },
+    headers: { "Content-Type": "multipart/form-data" },
   };
+
   const res = await axios.post(`${prefix}/`, formData, header);
+
   console.log(res);
   return res.data;
 };
@@ -75,19 +77,15 @@ export const getCommentList = async (cBoardId) => {
 
   return await res.data;
 };
-
-export const deleteComment = async (commentId) => {
-  const res = await axios.delete(`${prefix}/comments/${commentId}`);
-
-  return await res.data;
-};
-
-export const updateComment = async () => {
-  const response = await fetch(`/api/members/`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch member data");
-  }
-  return await response.data();
+// 댓글 삭제
+export const deleteComment = async (cComentId, cBoardId) => {
+  const res = await axios.delete(`${prefix}/${cBoardId}/comments/${cComentId}`)
+  return res.data;
+}
+//댓글 수정
+export const updateComment = async (cCommentId, cComment, cBoardId) => {
+  const res = await axios.put(`${prefix}/${cBoardId}/comments/${cCommentId}`, cComment);
+  return res.data;
 };
 
 export const postCommentAdd = async (req) => {

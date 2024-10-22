@@ -14,7 +14,7 @@ const AddPage = () => {
         <div className="container p-4">
             <div className="text-center mb-4">
                 <h1 className="display-4 font-weight-bold">
-                    CamperBoard Add Page
+                    Camper 게시판 글쓰기
                 </h1>
             </div>
             <AddComponent />

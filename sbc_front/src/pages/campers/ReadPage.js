@@ -25,7 +25,7 @@ const ReadPage = () => {
     return (
         <div className="container mt-5">
             <div className="display-4 mb-4">
-                Todo Read Page Component {cBoardId} {/* cBoardId로 변경 */}
+
             </div>
             <ReadComponent cBoardId={cBoardId} /> {/* ReadComponent에 cBoardId 전달 */}
         </div>

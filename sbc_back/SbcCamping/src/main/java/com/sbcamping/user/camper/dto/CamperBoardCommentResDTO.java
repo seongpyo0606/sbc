@@ -8,7 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @Builder
@@ -25,7 +25,6 @@ public class CamperBoardCommentResDTO {
     private CamperBoard cBoard;
 
     @JsonProperty("cCommentDate")
-    private LocalDate cCommentDate;
-
-    private char qBoardIsAdmin;
+    private Date cCommentDate;
+    
 }

@@ -3,7 +3,6 @@ import { getOne, putOne } from "../../api/camperApi";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from "react-router-dom";
 
-
 const ModifyComponent = ({ cBoardId }) => {
     const initState = {
         cBoardId: '',
@@ -21,8 +20,6 @@ const ModifyComponent = ({ cBoardId }) => {
     const [cboard, setCboard] = useState({ ...initState });
     const [error, setError] = useState('');
     const navigate = useNavigate();
-
-
 
     useEffect(() => {
         getOne(cBoardId).then((data) => {
@@ -48,26 +45,24 @@ const ModifyComponent = ({ cBoardId }) => {
 
     const handleClickModify = async () => {
         try {
-            // cboardDate의 형식을 yyyy-MM-dd로 변환
-
             const formData = new FormData();
-            formData.append("cBoardId", cboard.cBoardId)
+            formData.append("cBoardId", cboard.cBoardId);
             formData.append("member", cboard.member.memberID);
             formData.append("cBoardCategory", cboard.cBoardCategory);
             formData.append("cBoardTitle", cboard.cBoardTitle);
             formData.append("cBoardContent", cboard.cBoardContent);
             formData.append("cBoardViews", cboard.cBoardViews);
-            formData.append("cBoardAttachment", cboard.cboardAttachment);
-            if(cboard.file != null){
-                formData.append("file", cboard.file)
+            formData.append("cBoardAttachment", cboard.cBoardAttachment);
+            if (cboard.file != null) {
+                formData.append("file", cboard.file);
             }
-            //수정데이터 확인
-            console.log('cboardId:', formData.get('cBoardId'), 'memberId:', formData.get("member"), 'veiws :', formData.get("cBoardViews"));
+            // 수정데이터 확인
+            console.log('cboardId:', formData.get('cBoardId'), 'memberId:', formData.get("member"), 'views:', formData.get("cBoardViews"));
 
             // API 요청
             const response = await putOne(cBoardId, formData);
             console.log('수정 성공:', response);
-            navigate(-1)
+            navigate(-1);
         } catch (error) {
             // 오류 처리 개선
             if (error.response) {
@@ -151,7 +146,6 @@ const ModifyComponent = ({ cBoardId }) => {
                 </div>
             </div>
 
-
             <div className="row mb-3">
                 <label className="col-sm-2 col-form-label font-weight-bold">ATTACHMENT</label>
                 <div className="col-sm-10">
@@ -167,17 +161,17 @@ const ModifyComponent = ({ cBoardId }) => {
             <div className="d-flex justify-content-end">
                 <button
                     type="button"
-                    className="btn btn-secondary mx-2"
-                    onClick={handleClickCancel}
-                >
-                    Cancel
-                </button>
-                <button
-                    type="button"
                     className="btn btn-primary mx-2"
                     onClick={handleClickModify}
                 >
-                    Modify
+                    수정
+                </button>
+                <button
+                    type="button"
+                    className="btn btn-secondary mx-2"
+                    onClick={handleClickCancel}
+                >
+                    삭제
                 </button>
             </div>
         </div>
