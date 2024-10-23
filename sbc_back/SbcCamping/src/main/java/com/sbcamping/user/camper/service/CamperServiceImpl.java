@@ -9,16 +9,16 @@ import com.sbcamping.user.camper.dto.*;
 import com.sbcamping.user.camper.repository.CamperCommentRepository;
 import com.sbcamping.user.camper.repository.CamperRepository;
 import com.sbcamping.user.member.repository.MemberRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -33,12 +33,17 @@ import java.util.stream.Collectors;
 public class CamperServiceImpl implements CamperService {
 
     private final ModelMapper modelMapper;
+
     private final CamperRepository camperRepository;
+
     private final CamperCommentRepository commentRepository;
+
     private final MemberRepository memberRepository;
 
     private final String TITLE = "title";
     private final String CONTENT = "content";
+    @Autowired
+    private CamperCommentRepository camperCommentRepository;
 
     @Override
     public Long register(CamperBoardDTO camperBoardDTO) {
@@ -100,6 +105,7 @@ public class CamperServiceImpl implements CamperService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public PageResponseDTO<CamperBoardDTO> list(PageRequestDTO pageRequestDTO) {
         Pageable pageable = PageRequest.of(
                 pageRequestDTO.getPage() - 1, //1페이지가 0이므로 주의
@@ -119,6 +125,7 @@ public class CamperServiceImpl implements CamperService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public PageResponseDTO<CamperBoardDTO> search(
             PageRequestDTO requestDTO, String type, String keyword
     ) {
@@ -131,8 +138,8 @@ public class CamperServiceImpl implements CamperService {
                     requestDTO.getSize(), Sort.by("cBoardID").descending());
 
             res = switch (type) {
-                case TITLE -> camperRepository.findBycBoardTitleContaining(keyword, pageable);
-                case CONTENT -> camperRepository.findBycBoardContentContaining(keyword, pageable);
+                case TITLE -> camperRepository.findAllBycBoardTitleContaining(keyword, pageable);
+                case CONTENT -> camperRepository.findAllBycBoardContentContaining(keyword, pageable);
                 default -> null;
             };
 
@@ -155,7 +162,7 @@ public class CamperServiceImpl implements CamperService {
                 .pageRequestDTO(requestDTO)
                 .build();
     }
-
+    //댓글 리스트
     @Override
     public List<CamperBoardCommentResDTO> getCommentList(Long boardId) {
         List<CamperBoardComment> getList = commentRepository.getCommentList(boardId);
@@ -191,7 +198,7 @@ public class CamperServiceImpl implements CamperService {
             return 0L;
         }
     }
-
+    //댓글 수정
     @Override
     public void modifyComment(CamperBoardCommentDTO dto) {
         //read
@@ -209,10 +216,24 @@ public class CamperServiceImpl implements CamperService {
 
         commentRepository.save(camperBoardComment);
     }
+    //댓글 삭제
+    @Override
+    public void removeComment(Long commentId, Long cBoardId)
+    {
+        Optional<CamperBoard> cboard = camperRepository.findById(cBoardId);
+        Optional<CamperBoardComment> cboardComment = commentRepository.findById(commentId);
+
+        commentRepository.deleteById(commentId);
+        }
 
     @Override
-    public void removeComment(Long commentId, Long cBoardId) {
-        commentRepository.deleteById(commentId);
+    public CamperBoardCommentDTO getComment(Long commentId) {
+        Optional<CamperBoardComment> camperComment = camperCommentRepository.findById(commentId);
+        CamperBoardComment result = camperComment.orElseThrow();
+
+        CamperBoardCommentDTO dto = modelMapper.map(result, CamperBoardCommentDTO.class);
+
+        return dto;
     }
 
     private Member getMemberInfo(String auth, String refreshToken) {
@@ -222,4 +243,10 @@ public class CamperServiceImpl implements CamperService {
         String memberEmail = (String) memberClaims.get("memberEmail");
         return memberRepository.findByMemberEmail(memberEmail);
     }
+
 }
+
+
+
+
+

@@ -86,10 +86,25 @@ public class CamperController {
      * @param 게시판 id
      */
     @DeleteMapping("/{cBoardId}")
-    public void remove(
-            @PathVariable Long cBoardId
-    ) {
-        camperService.remove(cBoardId);
+    @Transactional
+    public Map<String, String> remove(@PathVariable("cBoardId") Long cBoardId) {
+        try {
+            String oldFileName = camperService.get(cBoardId).getCBoardAttachment();
+            List<CamperBoardCommentResDTO> commentResult = camperService.getCommentList(cBoardId);
+
+            for (CamperBoardCommentResDTO commentDTO : commentResult) {
+                log.info("Deleting comment ID: " +  commentDTO.getCCommentID());
+                camperService.removeComment(commentDTO.getCCommentID(), commentDTO.getBoardId());
+            }
+
+            camperService.remove(cBoardId);
+            fileUtil.deleteFile(oldFileName);
+
+            return Map.of("RESULT", "SUCCESS");
+        } catch (Exception e){
+            log.error("Error occurred while deleting file" + e.getMessage(), e);
+            throw  e;
+        }
     }
 
     @GetMapping("/view/{fileName}")
@@ -127,7 +142,7 @@ public class CamperController {
      *
      * @param
      */
-    @PutMapping("/comments")
+    @PostMapping("/comments")
     public Map<String, Long> registerComment(
             @RequestHeader(name = "Authorization") String auth,
             @RequestHeader("X-Refresh-Token") String refreshToken,

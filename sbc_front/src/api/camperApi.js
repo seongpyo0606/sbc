@@ -99,6 +99,6 @@ export const postCommentAdd = async (req) => {
       "X-Refresh-Token": memberInfo.refreshToken
     },
   };
-  const res = await axios.put(`${prefix}/comments`, req, header);
+  const res = await axios.post(`${prefix}/comments`, req, header);
   return await res.data;
 };

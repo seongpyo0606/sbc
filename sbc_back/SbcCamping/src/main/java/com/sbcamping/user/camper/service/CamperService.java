@@ -31,4 +31,6 @@ public interface CamperService {
     void modifyComment(CamperBoardCommentDTO dto);
 
     void removeComment(Long cCommentId, Long cBoardId);
+
+    CamperBoardCommentDTO getComment(Long commentId);
 }

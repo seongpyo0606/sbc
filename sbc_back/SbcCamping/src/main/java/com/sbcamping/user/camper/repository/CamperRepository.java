@@ -16,8 +16,8 @@ public interface CamperRepository extends JpaRepository<CamperBoard, Long> {
     @Query("select c from CamperBoard c order by c.cBoardID desc")
     Page<CamperBoard> orderdList(Pageable pageable);
 
-    Page<CamperBoard> findBycBoardTitleContaining(String title, Pageable pageable);
+    Page<CamperBoard> findAllBycBoardTitleContaining(String title, Pageable pageable);
 
-    Page<CamperBoard> findBycBoardContentContaining(String content, Pageable pageable);
+    Page<CamperBoard> findAllBycBoardContentContaining(String content, Pageable pageable);
 
 }
