@@ -15,7 +15,10 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CamperBoardCommentResDTO {
+    @JsonProperty("boardId")
     private Long boardId;
+
+    @JsonProperty("cCommentID")
     private Long cCommentID;
 
     @JsonProperty("cCommentContent")
@@ -26,5 +29,5 @@ public class CamperBoardCommentResDTO {
 
     @JsonProperty("cCommentDate")
     private Date cCommentDate;
-    
+
 }

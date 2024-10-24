@@ -57,7 +57,6 @@ function CommentComponent() {
 
     // 댓글 수정 버튼 클릭 시 해당 댓글을 수정 상태로 전환
     const handleClickEdit = (commentId, content) => {
-        console.log("--------------수정 데이터 ---------------: ", commentId, content)
         setEditingCommentId(commentId); // 수정할 댓글 ID 설정
         setEditingCommentContent(content); // 수정할 댓글 내용 설정
     };
@@ -69,7 +68,7 @@ function CommentComponent() {
             const formData = new FormData();
             formData.append("cCommentContent", editingCommentContent);
 
-            const response = await updateComment(commentId, formData, cBoardId);
+            const response = await updateComment(commentId, editingCommentContent, cBoardId);
             if (response && response.RESULT) {
                 console.log("댓글 수정 성공");
                 setEditingCommentId(null); // 수정 모드 종료
@@ -88,7 +87,6 @@ function CommentComponent() {
     const [currentID, setCurrentID] = useState(null);
 
     const handleClickDelete = async (commentId) => {
-        console.log("-----------------------------", commentId)
         setCurrentID(commentId);
         setModalOpen(true);
     };
@@ -103,7 +101,6 @@ function CommentComponent() {
             console.log("댓글 삭제 성공");
             fetchComments(); // 댓글 목록 갱신
         } catch (error) {
-            console.log("------------댓글 아이디-------------: " , currentID, cBoardId)
             alert("삭제 실패: " + error.message);
             console.error("삭제 중 오류 발생:", error);
         } finally {
@@ -144,8 +141,8 @@ function CommentComponent() {
                                                 hour12: false,
                                             })}
                                         </Card.Text>
-                                        <Button onClick={() => handleClickEdit(comment.ccommentID, comment.cCommentContent)}>수정</Button>
-                                        <Button onClick={() => handleClickDelete(comment.ccommentID)}>삭제</Button>
+                                        <Button onClick={() => handleClickEdit(comment.cCommentID, comment.cCommentContent)}>수정</Button>
+                                        <Button onClick={() => handleClickDelete(comment.cCommentID)}>삭제</Button>
                                     </>
                                 )}
                             </Card.Body>

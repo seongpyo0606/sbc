@@ -158,7 +158,7 @@ public class CamperController {
      *
      * @param
      */
-    @PatchMapping("/comments")
+    @PutMapping("/comments")
     public Map<String, String> updateComment(
             @RequestBody CamperBoardCommentDTO dto
     ) {
@@ -171,7 +171,7 @@ public class CamperController {
      *
      * @param
      */
-    @DeleteMapping("/{cBoardId}/comment/{cCommentId}")
+    @DeleteMapping("/{cBoardId}/comments/{cCommentId}")
     @Transactional
     public Map<String, String> removeComment(
             @PathVariable("cCommentId") Long cCommentId,

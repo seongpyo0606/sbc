@@ -77,14 +77,25 @@ export const getCommentList = async (cBoardId) => {
 
   return await res.data;
 };
-// 댓글 삭제
 export const deleteComment = async (cCommentId, cBoardId) => {
   const res = await axios.delete(`${prefix}/${cBoardId}/comments/${cCommentId}`)
   return res.data;
 }
 //댓글 수정
 export const updateComment = async (cCommentId, cComment, cBoardId) => {
-  const res = await axios.put(`${prefix}/${cBoardId}/comments/${cCommentId}`, cComment);
+  const header = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  const body = {
+    commentId: cCommentId,
+    boardId: cBoardId,
+    cCommentContent: cComment
+  };
+
+  const res = await axios.put(`${prefix}/comments`, body, header);
   return res.data;
 };
 
