@@ -7,10 +7,13 @@ import com.sbcamping.user.camper.service.CamperService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Map;
@@ -53,14 +56,23 @@ public class CamperController {
      * @param 게시판 id, 수정 정보
      */
     @PutMapping("/{id}")
-    public void  modify(
-            @PathVariable Long id, CamperBoardDTO camperBoardDTO) {
+    public Map<String, String>  modify(
+            @RequestHeader(name = "Authorization") String auth,
+            @RequestHeader("X-Refresh-Token") String refreshToken,
+            @PathVariable Long id, CamperBoardDTO camperBoardDTO
+    ) {
+        if (!camperService.isBoardAuth(auth, refreshToken, camperBoardDTO.getCBoardID())) {
+            return Map.of("res", "F", "code", "403");
+        }
+
         MultipartFile file = camperBoardDTO.getFile();
         String uploadFileName = fileUtil.saveFile(file);
         camperBoardDTO.setCBoardAttachment(uploadFileName);
 
         camperBoardDTO.setCBoardID(id);
         camperService.modify(camperBoardDTO);
+
+        return Map.of("res", "S");
     }
 
     /**
@@ -70,8 +82,6 @@ public class CamperController {
      */
     @PostMapping("/")
     public Map<String, Long> register(CamperBoardDTO camperBoardDTO) {
-        log.info("컨트롤러 오니?");
-        log.info("가ㅏ:", camperBoardDTO);
         MultipartFile file = camperBoardDTO.getFile();
         String uploadFileName = fileUtil.saveFile(file);
         camperBoardDTO.setCBoardAttachment(uploadFileName);
@@ -87,20 +97,25 @@ public class CamperController {
      */
     @DeleteMapping("/{cBoardId}")
     @Transactional
-    public Map<String, String> remove(@PathVariable("cBoardId") Long cBoardId) {
+    public Map<String, String> remove(
+            @RequestHeader(name = "Authorization") String auth,
+            @RequestHeader("X-Refresh-Token") String refreshToken,
+            @PathVariable("cBoardId") Long cBoardId
+    ) {
+        if (!camperService.isBoardAuth(auth, refreshToken, cBoardId)) {
+            return Map.of("res", "F", "code", "403");
+        }
+
+        log.info("게시판 삭제");
         try {
             String oldFileName = camperService.get(cBoardId).getCBoardAttachment();
-            List<CamperBoardCommentResDTO> commentResult = camperService.getCommentList(cBoardId);
-
-            for (CamperBoardCommentResDTO commentDTO : commentResult) {
-                log.info("Deleting comment ID: " +  commentDTO.getCCommentID());
-                camperService.removeComment(commentDTO.getCCommentID(), commentDTO.getBoardId());
+            if (StringUtils.hasText(oldFileName)) {
+                fileUtil.deleteFile(oldFileName);
             }
 
             camperService.remove(cBoardId);
-            fileUtil.deleteFile(oldFileName);
 
-            return Map.of("RESULT", "SUCCESS");
+            return Map.of("res", "S");
         } catch (Exception e){
             log.error("Error occurred while deleting file" + e.getMessage(), e);
             throw  e;
@@ -160,10 +175,16 @@ public class CamperController {
      */
     @PutMapping("/comments")
     public Map<String, String> updateComment(
+            @RequestHeader(name = "Authorization") String auth,
+            @RequestHeader("X-Refresh-Token") String refreshToken,
             @RequestBody CamperBoardCommentDTO dto
     ) {
+        if (!camperService.isCommentAuth(auth, refreshToken, dto.getCommentId())) {
+            return Map.of("res", "F", "code", "403");
+        }
+
         camperService.modifyComment(dto);
-        return Map.of("RESULT", "SUCCESS");
+        return Map.of("res", "S");
     }
 
     /**
@@ -174,10 +195,19 @@ public class CamperController {
     @DeleteMapping("/{cBoardId}/comments/{cCommentId}")
     @Transactional
     public Map<String, String> removeComment(
+            @RequestHeader(name = "Authorization") String auth,
+            @RequestHeader("X-Refresh-Token") String refreshToken,
             @PathVariable("cCommentId") Long cCommentId,
             @PathVariable("cBoardId") Long cBoardId) {
+
+        log.info("인증 여부 : {}", camperService.isCommentAuth(auth, refreshToken, cCommentId));
+
+        if (!camperService.isCommentAuth(auth, refreshToken, cCommentId)) {
+            return Map.of("res", "F", "code", "403");
+        }
+
         camperService.removeComment(cCommentId, cBoardId);
-        return Map.of("RESULT", "SUCCESS");
+        return Map.of("res", "S");
 
     }
 }

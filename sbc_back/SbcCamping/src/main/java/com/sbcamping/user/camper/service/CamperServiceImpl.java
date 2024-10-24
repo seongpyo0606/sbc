@@ -68,12 +68,6 @@ public class CamperServiceImpl implements CamperService {
 
     @Override
     public void modify(CamperBoardDTO camperBoardDTO) {
-        // 2. change : category,title, content, file
-        String updatedCategory = camperBoardDTO.getCBoardCategory();
-        String updatedTitle = camperBoardDTO.getCBoardTitle();
-        String updatedContent = camperBoardDTO.getCBoardContent();
-        String updatedAttachment = camperBoardDTO.getCBoardAttachment();
-
 
         Optional<CamperBoard> result = camperRepository.findById(camperBoardDTO.getCBoardID());
 
@@ -101,6 +95,11 @@ public class CamperServiceImpl implements CamperService {
 
     @Override
     public void remove(Long cBoardId) {
+        List<CamperBoardComment> deleteBoardCommentList = camperCommentRepository.deleteBoardCommentList(cBoardId);
+        deleteBoardCommentList.forEach(
+                c -> camperCommentRepository.deleteById(c.getCCommentID())
+        );
+
         camperRepository.deleteById(cBoardId);
     }
 
@@ -224,7 +223,7 @@ public class CamperServiceImpl implements CamperService {
         Optional<CamperBoardComment> cboardComment = commentRepository.findById(commentId);
 
         commentRepository.deleteById(commentId);
-        }
+    }
 
     @Override
     public CamperBoardCommentDTO getComment(Long commentId) {
@@ -242,6 +241,28 @@ public class CamperServiceImpl implements CamperService {
         Map<String, Object> memberClaims = (Map<String, Object>) claims.get("member");
         String memberEmail = (String) memberClaims.get("memberEmail");
         return memberRepository.findByMemberEmail(memberEmail);
+    }
+
+    @Override
+    public boolean isBoardAuth(String auth, String refreshToken, Long boardId) {
+        Member member = this.getMemberInfo(auth, refreshToken);
+        CamperBoard camperBoard = camperRepository.findById(boardId).orElseThrow();
+
+        log.info("member id : {}", member.getMemberID());
+        log.info("board member id : {}", camperBoard.getMember().getMemberID());
+
+        return camperBoard.getMember().getMemberID() == member.getMemberID();
+    }
+
+    @Override
+    public boolean isCommentAuth(String auth, String refreshToken, Long commentId) {
+        Member member = this.getMemberInfo(auth, refreshToken);
+        CamperBoardComment comment = camperCommentRepository.findById(commentId).orElseThrow();
+
+        log.info("member id : {}", member.getMemberID());
+        log.info("comment member id : {}", comment.getMember().getMemberID());
+
+        return comment.getMember().getMemberID() == member.getMemberID();
     }
 
 }

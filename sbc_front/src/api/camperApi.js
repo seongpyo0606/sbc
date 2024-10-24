@@ -5,6 +5,21 @@ export const API_SERVER_HOST = "http://localhost:8080";
 
 export const prefix = `${API_SERVER_HOST}/api/campers`;
 
+const memberInfo = JSON.parse(getCookie("memberCookie"));
+const { accessToken, refreshToken } = memberInfo;
+
+const commonHeader = {
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${accessToken}`,
+    "X-Refresh-Token": memberInfo.refreshToken
+  },
+};
+
+export const getCookieMemberId = () => {
+  return memberInfo.member.memberId;
+}
+
 //상세페이지
 export const getOne = async (cBoardId) => {
   const res = await axios.get(`${prefix}/${cBoardId}`);
@@ -43,7 +58,7 @@ export const postAdd = async (formData) => {
 
 //삭제
 export const deleteOne = async (cBoardId) => {
-  const res = await axios.delete(`${prefix}/${cBoardId}`);
+  const res = await axios.delete(`${prefix}/${cBoardId}`, commonHeader);
   return res.data;
 };
 
@@ -53,7 +68,9 @@ export const putOne = async (cBoardId, formdata) => {
   try {
     const res = await axios.put(`${prefix}/${cBoardId}`, formdata, {
       headers: {
-        "Content-Type": "multipart/form-data", // Content-Type 설정
+        "Content-Type": "multipart/form-data",
+        "Authorization": `Bearer ${accessToken}`,
+        "X-Refresh-Token": memberInfo.refreshToken
       },
     });
     return res.data; // 응답 데이터 반환
@@ -62,6 +79,7 @@ export const putOne = async (cBoardId, formdata) => {
     throw error; // 오류를 호출자에게 전달
   }
 };
+
 // api/camperApi.js 회원정보 가져오기
 export const getMemberById = async (memberId) => {
   const response = await fetch(`/api/members/${memberId}`);
@@ -73,43 +91,31 @@ export const getMemberById = async (memberId) => {
 
 /* 댓글 리스트 가져오기 */
 export const getCommentList = async (cBoardId) => {
+
   const res = await axios.get(`${prefix}/comments/${cBoardId}`);
 
   return await res.data;
 };
+
+// 댓글 삭제
 export const deleteComment = async (cCommentId, cBoardId) => {
-  const res = await axios.delete(`${prefix}/${cBoardId}/comments/${cCommentId}`)
+  const res = await axios.delete(`${prefix}/${cBoardId}/comments/${cCommentId}`, commonHeader)
   return res.data;
 }
+
 //댓글 수정
 export const updateComment = async (cCommentId, cComment, cBoardId) => {
-  const header = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-
   const body = {
     commentId: cCommentId,
     boardId: cBoardId,
     cCommentContent: cComment
   };
 
-  const res = await axios.put(`${prefix}/comments`, body, header);
+  const res = await axios.put(`${prefix}/comments`, body, commonHeader);
   return res.data;
 };
 
 export const postCommentAdd = async (req) => {
-  const memberInfo = JSON.parse(getCookie("memberCookie"));
-  const { accessToken, refreshToken } = memberInfo;
-
-  const header = {
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${accessToken}`,
-      "X-Refresh-Token": memberInfo.refreshToken
-    },
-  };
-  const res = await axios.post(`${prefix}/comments`, req, header);
+  const res = await axios.post(`${prefix}/comments`, req, commonHeader);
   return await res.data;
 };

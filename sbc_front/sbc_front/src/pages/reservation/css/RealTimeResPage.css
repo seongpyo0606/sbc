@@ -1,0 +1,17 @@
+td {
+    width: 200px;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    text-align: left;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
