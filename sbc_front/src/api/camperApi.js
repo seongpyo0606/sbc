@@ -78,8 +78,8 @@ export const getCommentList = async (cBoardId) => {
   return await res.data;
 };
 // 댓글 삭제
-export const deleteComment = async (cComentId, cBoardId) => {
-  const res = await axios.delete(`${prefix}/${cBoardId}/comments/${cComentId}`)
+export const deleteComment = async (cCommentId, cBoardId) => {
+  const res = await axios.delete(`${prefix}/${cBoardId}/comments/${cCommentId}`)
   return res.data;
 }
 //댓글 수정

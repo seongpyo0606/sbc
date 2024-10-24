@@ -49,7 +49,6 @@ public class SiteServiceImpl implements SiteService{
 
         // Site 엔티티의 change 메서드 사용하여 필드 업데이트
         site.changeSiteName(siteDTO.getSiteName());
-        site.changeIsAvailable(siteDTO.getSiteIsAvailable().charAt(0)); // String -> char 변환
         site.changeResLimit(siteDTO.getSiteResLimit().charAt(0)); // String -> char 변환
         site.changeWeekendPay((long) siteDTO.getWeekendPay());
         site.changeWeekdayPay((long) siteDTO.getWeekdayPay());
