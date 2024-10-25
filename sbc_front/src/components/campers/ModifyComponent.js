@@ -46,7 +46,7 @@ const ModifyComponent = ({ cBoardId }) => {
     const handleClickModify = async () => {
         try {
             const formData = new FormData();
-            formData.append("cBoardId", cboard.cBoardId);
+            formData.append("cBoardID", cboard.cBoardId);
             formData.append("member", cboard.member.memberID);
             formData.append("cBoardCategory", cboard.cBoardCategory);
             formData.append("cBoardTitle", cboard.cBoardTitle);
@@ -61,6 +61,11 @@ const ModifyComponent = ({ cBoardId }) => {
 
             // API 요청
             const response = await putOne(cBoardId, formData);
+            if (response.res == "F" && response.code == "403") {
+                alert("작성자만 수정할 수 있습니다.");
+                return;
+            }
+
             console.log('수정 성공:', response);
             navigate(-1);
         } catch (error) {
@@ -171,7 +176,7 @@ const ModifyComponent = ({ cBoardId }) => {
                     className="btn btn-secondary mx-2"
                     onClick={handleClickCancel}
                 >
-                    삭제
+                    취소
                 </button>
             </div>
         </div>

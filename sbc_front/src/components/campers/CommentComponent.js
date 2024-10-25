@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getCommentList, postCommentAdd, updateComment, deleteComment } from "../../api/camperApi";
+import { getCommentList, postCommentAdd, updateComment, deleteComment, getCookieMemberId } from "../../api/camperApi";
 import { useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -57,6 +57,7 @@ function CommentComponent() {
 
     // 댓글 수정 버튼 클릭 시 해당 댓글을 수정 상태로 전환
     const handleClickEdit = (commentId, content) => {
+        console.log("--------------수정 데이터 ---------------: ", commentId, content)
         setEditingCommentId(commentId); // 수정할 댓글 ID 설정
         setEditingCommentContent(content); // 수정할 댓글 내용 설정
     };
@@ -69,13 +70,14 @@ function CommentComponent() {
             formData.append("cCommentContent", editingCommentContent);
 
             const response = await updateComment(commentId, editingCommentContent, cBoardId);
-            if (response && response.RESULT) {
-                console.log("댓글 수정 성공");
+            if (response && response.res == "S") {
                 setEditingCommentId(null); // 수정 모드 종료
                 setEditingCommentContent("");
                 fetchComments(); // 댓글 목록 갱신
             } else {
-                console.error("댓글 수정 실패:", response);
+                if (response.res == "F" && response.code == "403") {
+                    alert("작성자만 수정할 수 있습니다.");
+                }
             }
         } catch (error) {
             console.error("오류 발생:", error);
@@ -87,6 +89,7 @@ function CommentComponent() {
     const [currentID, setCurrentID] = useState(null);
 
     const handleClickDelete = async (commentId) => {
+        console.log("-----------------------------", commentId)
         setCurrentID(commentId);
         setModalOpen(true);
     };
@@ -94,13 +97,16 @@ function CommentComponent() {
     const confirmDelete = async () => {
         if (currentID === null || currentID === undefined) {
             alert("삭제할 댓글 ID가 유효하지 않습니다."); // 오류 메시지
-            return; // 함수 종료
+            return;
         }
         try {
-            await deleteComment(currentID, cBoardId);
-            console.log("댓글 삭제 성공");
-            fetchComments(); // 댓글 목록 갱신
+            const response = await deleteComment(currentID, cBoardId);
+            if (response.res == "F" && response.code == "403") {
+                alert("작성자만 수정할 수 있습니다.");
+            }
+            fetchComments();
         } catch (error) {
+            console.log("------------댓글 아이디-------------: " , currentID, cBoardId)
             alert("삭제 실패: " + error.message);
             console.error("삭제 중 오류 발생:", error);
         } finally {
@@ -141,8 +147,13 @@ function CommentComponent() {
                                                 hour12: false,
                                             })}
                                         </Card.Text>
-                                        <Button onClick={() => handleClickEdit(comment.cCommentID, comment.cCommentContent)}>수정</Button>
-                                        <Button onClick={() => handleClickDelete(comment.cCommentID)}>삭제</Button>
+                                        {getCookieMemberId() === comment.member.memberID && (
+                                            <Button onClick={() => handleClickEdit(comment.cCommentID, comment.cCommentContent)}>수정</Button>
+                                        )}
+                                        {getCookieMemberId() === comment.member.memberID && (
+                                            <Button onClick={() => handleClickDelete(comment.cCommentID)}>삭제</Button>
+                                        )}
+
                                     </>
                                 )}
                             </Card.Body>

@@ -33,4 +33,8 @@ public interface CamperService {
     void removeComment(Long cCommentId, Long cBoardId);
 
     CamperBoardCommentDTO getComment(Long commentId);
+
+    boolean isBoardAuth(String auth, String refreshToken, Long boardId);
+
+    boolean isCommentAuth(String auth, String refreshToken, Long commentId);
 }

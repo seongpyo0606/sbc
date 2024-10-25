@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { getOne, deleteOne, getMemberById, prefix } from "../../api/camperApi"; // API 함수 가져오기
+import { getOne, deleteOne, getMemberById, prefix, getCookieMemberId } from "../../api/camperApi"; // API 함수 가져오기
 import useCustomMove from "../../hooks/useCustomMove";
 import CommentComponent from "./CommentComponent"; // CommentComponent 추가
 
 const initState = {
     member: {
         memberName: '', // 작성자 이름
-        memberId: ''
+        memberID: ''
     },
     cboardCategory: '',
     cboardTitle: '',
@@ -30,9 +30,10 @@ const ReadComponent = ({ cBoardId }) => {
                 if (data) {
                     setCamper(data); // 게시글 데이터 상태 업데이트
 
+
                     // 작성자 정보를 가져오기 위해 memberId를 사용
-                    if (data.memberId) {
-                        const memberData = await getMemberById(data.memberId);
+                    if (data.memberID) {
+                        const memberData = await getMemberById(data.memberID);
                         setCamper(prevCamper => ({
                             ...prevCamper,
                             member: memberData
@@ -48,6 +49,9 @@ const ReadComponent = ({ cBoardId }) => {
             }
         };
 
+        console.log("getCookieMemberId : ", getCookieMemberId());
+        console.log("checkMemberId : ", camper.member.memberID);
+
         fetchData();
     }, [cBoardId]);
 
@@ -55,9 +59,13 @@ const ReadComponent = ({ cBoardId }) => {
     const handleDelete = async () => {
         if (window.confirm("정말로 삭제하시겠습니까?")) {
             try {
-                await deleteOne(cBoardId); // API 호출로 게시글 삭제
+                const response = await deleteOne(cBoardId);
+                if (response.res == "F" && response.code == "403") {
+                    alert("작성자만 수정할 수 있습니다.");
+                    return;
+                }
                 alert("게시글이 삭제되었습니다.");
-                moveToList(); // 삭제 후 목록으로 이동
+                moveToList();
             } catch (error) {
                 console.error("삭제 중 오류 발생:", error);
             }
@@ -151,20 +159,27 @@ const ReadComponent = ({ cBoardId }) => {
                     >
                         목록으로
                     </button>
-                    <button
-                        type="button"
-                        className="btn btn-warning me-2"
-                        onClick={() => moveToModify(cBoardId)}
-                    >
-                        수정
-                    </button>
-                    <button
-                        type="button"
-                        className="btn btn-danger"
-                        onClick={handleDelete}
-                    >
-                        삭제
-                    </button>
+                    {getCookieMemberId() === camper.member.memberID && (
+                        <button
+                            type="button"
+                            className="btn btn-warning me-2"
+                            onClick={() => moveToModify(cBoardId)}
+                        >
+                            수정
+                        </button>
+
+                    )}
+                    {getCookieMemberId() === camper.member.memberID && (
+                        <button
+                            type="button"
+                            className="btn btn-danger"
+                            onClick={handleDelete}
+                        >
+                            삭제
+                        </button>
+
+                    )}
+
                 </div>
             </div>
         </div>

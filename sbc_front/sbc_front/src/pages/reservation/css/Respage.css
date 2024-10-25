@@ -1,0 +1,13 @@
+.form-control {
+    border-radius: 0;
+    padding: .600rem .75rem;
+}
+
+.form-label {
+    border-style: solid ;
+    border-width: 1px;
+    align-content: center;
+    border-color: rgba(222, 226, 230);
+}
+
+
