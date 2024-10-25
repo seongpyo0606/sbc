@@ -4,7 +4,212 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbe83b91-7795-4165-a34d-90359295e0f6" name="변경" comment="" />
+    <list default="true" id="fbe83b91-7795-4165-a34d-90359295e0f6" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/.idea/material_theme_project_new.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/.idea/sbc_front.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/public/images/mainlogo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/api/A_memberApi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/api/NoticeApi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/api/ResApi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/api/SiteApi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/api/camperApi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/api/qnaApi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/api/statsApi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/camper/AddComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/camper/ListComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/camper/ModifyComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/camper/ReadComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/common/pahination.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/member/InactiveListComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/member/TotalListComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/menus/CommunityMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/menus/MemberMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/menus/ResMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/menus/SiteMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/menus/StatsMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/notice/AddComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/notice/ListComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/notice/ReadComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/notice/UpdateComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/qna/AddComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/qna/CommentComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/qna/ListComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/qna/ModifyComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/qna/ReadComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/res/CancelList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/res/ResCalendar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/res/ResList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/res/Search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/res/TotalList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/review/ListComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/site/SiteManagements.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/site/http-client.env.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/site/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/stats/CustomerComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/stats/DateSearchComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/stats/ResCancelComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/stats/ResRateComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/stats/ReviewComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/stats/SalesComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/stats/SearchComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/util/BoardSearchComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/util/BootstrapPagination.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/util/ConfirmModal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/util/MemberSearchComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/components/util/Pagination.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/css/common.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/css/mainPage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/css/menu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/layouts/BasicLayout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/MainPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/NotFound.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/camper/CamperIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/member/MemberIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/notice/AddPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/notice/ListPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/notice/ModifyPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/notice/NoticeIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/notice/ReadPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/qna/QnaIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/res/DateSitePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/res/ResIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/res/TotalPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/review/AddPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/review/ReviewIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/site/SiteManagementsPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/stats/CustomerPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/stats/ReservationSalesPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/pages/stats/StatsIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/router/camperRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/router/memberRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/router/noticeRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/router/qnaRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/router/resRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/router/reviewRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/admin/router/statsRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/api/ResApi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/api/camperApi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/api/memberApi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/api/mypageApi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/campers/AddComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/campers/CommentComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/campers/ListComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/campers/ModifyComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/campers/ReadComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/campingRes/MonthComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/campingRes/ResGuideComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/campinginfo/FacilityGuideComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/campinginfo/HowToComeComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/campinginfo/KakaoMapComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/common/FetchingModal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/common/PageComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/common/ResultModalComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/member/JoinAgreeComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/components/member/mypageMyInfoComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/css/common.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/css/join.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/css/mainPage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/css/menu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/css/mypage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/hooks/useCustomLogin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/hooks/useCustomMove.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/FacilityGuide.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/Managementoffice.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/brige.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/campingimg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/campingshop.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/campingview.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/default.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/filehere.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/image8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/recycle.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/shop.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/shower.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/sink.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/snow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/images/toilet.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/layouts/BasicLayout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/layouts/CampingMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/layouts/CommunityMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/layouts/LoginMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/layouts/MypageMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/layouts/NoticeMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/layouts/ReservationMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/MainPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/campers/AddPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/campers/CamperIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/campers/ListPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/campers/ModifyPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/campers/ReadPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/campinginfo/CampingIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/campinginfo/FacilityGuide.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/campinginfo/FacilityGuidePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/campinginfo/HowToComePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/campinginfo/IntroductionPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/campinginfo/KakaoMapComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/common/LoginPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/community/NoticeIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/community/QnaIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/login/FindEmailPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/login/FindPwModifyPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/login/FindPwPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/login/JoinAgreePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/login/JoinCompletePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/login/JoinIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/login/JoinInputPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/login/KakaoRedirectPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/login/LoginPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/member/MyPageResPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/member/MypageIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/member/MypageMyInfoPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/member/MypageResDetailPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/member/MypageWithdrawPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/reservation/RealTimeResPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/reservation/ResGuidePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/reservation/ResIndexPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/reservation/Respage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/reservation/css/RealTimeResPage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/pages/reservation/css/Respage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/router/CamperRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/router/CampingInfoRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/router/CommunityRouther.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/router/JoinRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/router/MypageRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/router/NoticeRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/router/ResRouter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/router/root.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/slice/loginSlice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/store.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/util/cookieUtil.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/src/util/jwtUtil.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sbc_front/sbc_front/tailwind.config.js" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,12 +224,12 @@
     &quot;assignee&quot;: &quot;seongpyo0606&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/seongpyo0606/sbc.git",
-    "accountId": "d7522a01-2fec-495c-932b-8006d823e03f"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/seongpyo0606/sbc.git&quot;,
+    &quot;accountId&quot;: &quot;d7522a01-2fec-495c-932b-8006d823e03f&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -34,20 +239,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/workspace/SBC2024/sbc_back/SbcCamping&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/workspace/sbc 이건 진짜 된다/sbc_back",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="SbcCampingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -80,6 +285,7 @@
       <workItem from="1729575589789" duration="150000" />
       <workItem from="1729575742118" duration="14000" />
       <workItem from="1729738151435" duration="23000" />
+      <workItem from="1729818901926" duration="7000" />
     </task>
     <servers />
   </component>
